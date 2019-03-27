@@ -1,0 +1,44 @@
+<%= form_with(model: link, local: true) do |form| %>
+  <% if link.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(link.errors.count, "error") %> prohibited this link from being saved:</h2>
+
+      <ul>
+      <% link.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :destination %>
+    <%= form.text_field :destination %>
+  </div>
+
+<!--  <div class="field">-->
+    <%#= form.label :short_code %>
+    <%#= form.text_field :short_code %>
+<!--  </div>-->
+
+<!--  <div class="field">-->
+    <%#= form.label :admin_code %>
+    <%#= form.text_field :admin_code %>
+<!--  </div>-->
+
+<!--  <div class="field">-->
+    <%#= form.label :use_count %>
+    <%#= form.number_field :use_count %>
+<!--  </div>-->
+
+<!--  <div class="field">-->
+    <%#= form.label :expired_at %>
+    <%#= form.datetime_select :expired_at %>
+<!--  </div>-->
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= expired_at %>

@@ -1,0 +1,46 @@
+<!--<%#= link_to 'Edit', edit_link_path(@link[:admin_code]) %> |-->
+<%= link_to 'New', new_link_path %>
+
+<h2>Link <%= @link.short_code %></h2>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Destination:</strong>
+  <%= link_to @link.destination, @link.destination %>
+</p>
+
+<p>
+  <strong>Short link:</strong>
+  <% short_link = root_url.concat(@link.short_code) %>
+  <%= link_to short_link, short_link %>
+</p>
+
+<p>
+  <strong>Admin link:</strong>
+  <% admin_link = root_url.concat('admin/', @link.admin_code) %>
+  <%= link_to admin_link, admin_link %>
+</p>
+
+<p>
+  <strong>Use count:</strong>
+  <%= @link.use_count %>
+</p>
+
+<p>
+  <strong>Most popular day of week:</strong>
+  <%= analytics_value(:day_of_week) %>
+</p>
+
+<p>
+  <strong>Most popular hour of day (24-hour clock):</strong>
+  <%= analytics_value(:hour_of_day) %>
+</p>
+
+<p>
+  <strong>User agents ([count]: [user agent])</strong><br>
+  <% @link.user_agents.sort_by {|_key, value| value}.each do |ua, count| %>
+    <%= count.to_s + ': ' + ua %>
+  <% end %>
+</p>
+
+<%= expired_at %>

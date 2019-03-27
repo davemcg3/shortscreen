@@ -1,0 +1,6 @@
+<%= form_with(url: expire_link_path, method: :patch, local: true, model: @link) do |form| %>
+  <%= form.hidden_field :expired_at, value: true %>
+  <div class="actions">
+    <%= form.submit "Expire Link" %>
+  </div>
+<% end %>
